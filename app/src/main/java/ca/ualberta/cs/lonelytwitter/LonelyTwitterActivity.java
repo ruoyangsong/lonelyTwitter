@@ -26,7 +26,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
 
-	private static final String FILENAME = "file.sav";
+	private static final String FILENAME = "2.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList;
@@ -85,7 +85,7 @@ public class LonelyTwitterActivity extends Activity {
 		loadFromFile();
 
 
-		 adapter = new ArrayAdapter<Tweet>(this,
+		adapter = new ArrayAdapter<Tweet>(this,
 				R.layout.list_item, tweetList);
 		oldTweetsList.setAdapter(adapter);
 	}
@@ -111,11 +111,11 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
-	
+
 	private void saveInFile(String text, Date date) {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
-					Context.MODE_APPEND);
+					Context.MODE_PRIVATE);
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
 
 			Gson gson = new Gson();
